@@ -35,42 +35,65 @@ class Person(AbstractUser):
 
     tshirt_size = models.CharField(max_length=4, choices=TSHIRT_SIZE.choices())
 
+    federation = models.CharField(max_length=30, blank=True)
+
 
 class Couple(models.Model):
     lady = models.ForeignKey('Person', null=True)
     man = models.ForeignKey('Person', null=True)
 
 
-# class Lesson(models.Model):
-
-
 
 # class Club(models.Model):
-
+#     name = models.CharField()
+#     city
+#     country
+#     coach = models.ForeingKey(Person)
 
 
 # class Event(models.Model):
+#     date_start =
+#     date_end
+#     name
 
 
-
-# class Entry(models.Model):
-
-#     couple =
-#     author =
-
-
-
+# # Уроки с шаблонами
+# class Lesson(models.Model):
+#     name
+#     is_group
+#     is_test
+#     is_
 
 
+# class PackageTemplate(models.Model):
+#     name =
+#     is_all_days
 
 
+# class Package(models.Model):
+#     template = models.ForeingKey(PackageTemplate)
+#     event = models.ForeingKey(Event)
+#     order =
 
 
+# class PackagePrice():
+#     date_start =
+#     price =
 
 
+# class Application(models.Model):
+#     event = models.ForeingKey(Event)
+#     package = models.ForeingKey(Package)
 
 
+# class ApplicationDays(models.Mode):
+#     application
+#     day =
 
+
+# class AplicationLesson(models.Model):
+#     application
+#     lesson
 
 
 
