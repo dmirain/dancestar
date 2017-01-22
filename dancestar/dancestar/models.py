@@ -6,30 +6,7 @@ from __future__ import unicode_literals, absolute_import
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-
-from dancestar.lib.choices import OrderedChoices
-
-
-
-TSHIRT_SIZE = OrderedChoices(
-    ('XXS', 'xxs', 'XXS'),
-    ('XS', 'xs', 'XS'),
-    ('S', 's', 'S'),
-    ('M', 'm', 'M'),
-    ('L', 'l', 'L'),
-    ('XL', 'xl', 'XL'),
-    ('XXL', 'xxl', 'XXL'),
-    ('XXXL', 'xxxl', 'XXXL'),
-)
-
-
-GENDER = OrderedChoices(
-    ('MALE', 'male', 'MALE'),
-    ('FEMALE', 'female', 'FEMALE'),
-)
-
-# AGE_GROUP =
-
+from dancestar.constants import GENDER, AGE_GROUPS, DISCIPLINES, LEVELS, TSHIRT_SIZE
 
 
 class Person(AbstractUser):
@@ -51,12 +28,12 @@ class Person(AbstractUser):
     city = models.CharField(max_length=30, blank=True)
     country = models.CharField(max_length=30, blank=True)
 
-    age_group = models.CharField(max_length=30, blank=True)
-    discipline = models.CharField(max_length=30, blank=True)
-    standart_level = models.CharField(max_length=30, blank=True)
-    latin_level = models.CharField(max_length=30, blank=True)
+    age_group = models.CharField(max_length=30, choices=AGE_GROUPS.choices(), blank=True)
+    discipline = models.CharField(max_length=30, choices=DISCIPLINES.choices(), blank=True)
+    standart_level = models.CharField(max_length=30, choices=LEVELS.choices(), blank=True)
+    latin_level = models.CharField(max_length=30, choices=LEVELS.choices(), blank=True)
 
-    tshirt_size = models.CharField(max_length=4, choices=TSHIRT_SIZE.choices(), default='')
+    tshirt_size = models.CharField(max_length=4, choices=TSHIRT_SIZE.choices())
 
 
 class Couple(models.Model):
