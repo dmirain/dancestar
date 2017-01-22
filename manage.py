@@ -7,5 +7,10 @@ import sys
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dancestar.settings")
 
+
 def django_main():
     execute_from_command_line(sys.argv)
+
+
+if __name__ == "__main__":
+    django_main()

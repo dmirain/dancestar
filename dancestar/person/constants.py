@@ -39,15 +39,15 @@ AGE_GROUPS = OrderedChoices(
 
 
 DISCIPLINES = OrderedChoices(
-    ('STANDART', 'standart', 'Standart')
-    ('LATIN', 'latin', 'Latin')
-    ('DANCE_10', 'dance_10', '10 dance')
-    ('DANCE_8', 'dance_8', '8 dance')
-    ('DANCE_6', 'dance_6', '6 dance')
-    ('DANCE_5', 'dance_5', '5 dance')
-    ('DANCE_4', 'dance_4', '4 dance')
-    ('DANCE_3', 'dance_3', '3 dance')
-    ('CONTEMPORARY', 'contemporary', 'Contemporary')
+    ('STANDART', 'standart', 'Standart'),
+    ('LATIN', 'latin', 'Latin'),
+    ('DANCE_10', 'dance_10', '10 dance'),
+    ('DANCE_8', 'dance_8', '8 dance'),
+    ('DANCE_6', 'dance_6', '6 dance'),
+    ('DANCE_5', 'dance_5', '5 dance'),
+    ('DANCE_4', 'dance_4', '4 dance'),
+    ('DANCE_3', 'dance_3', '3 dance'),
+    ('CONTEMPORARY', 'contemporary', 'Contemporary'),
 )
 
 

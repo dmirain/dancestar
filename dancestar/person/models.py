@@ -1,12 +1,10 @@
 # coding: utf-8
 from __future__ import unicode_literals, absolute_import
 
-
-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-from dancestar.constants import GENDER, AGE_GROUPS, DISCIPLINES, LEVELS, TSHIRT_SIZE
+from dancestar.person.constants import GENDERS, AGE_GROUPS, DISCIPLINES, LEVELS, TSHIRT_SIZES
 
 
 class Person(AbstractUser):
@@ -15,12 +13,12 @@ class Person(AbstractUser):
 
     phone = models.CharField(max_length=100)
 
-    gender = models.CharField(max_length=6, choices=GENDER.choices())
+    gender = models.CharField(max_length=6, choices=GENDERS.choices())
     birthday = models.DateField(null=True)
     # club = models.ForeignKey('Club', null=True)
 
-    chief = models.ForeignKey('Person', null=True)
-    partner = models.ForeignKey('Person', null=True)
+    chief = models.ForeignKey('Person', null=True, related_name='students')
+    partner = models.ForeignKey('Person', null=True, related_name='partner_list')
 
     is_coach = models.BooleanField(default=True)
     # is_student = models.BooleanField(default=True)
@@ -33,14 +31,14 @@ class Person(AbstractUser):
     standart_level = models.CharField(max_length=30, choices=LEVELS.choices(), blank=True)
     latin_level = models.CharField(max_length=30, choices=LEVELS.choices(), blank=True)
 
-    tshirt_size = models.CharField(max_length=4, choices=TSHIRT_SIZE.choices())
+    tshirt_size = models.CharField(max_length=4, choices=TSHIRT_SIZES.choices())
 
     federation = models.CharField(max_length=30, blank=True)
 
 
 class Couple(models.Model):
-    lady = models.ForeignKey('Person', null=True)
-    man = models.ForeignKey('Person', null=True)
+    lady = models.ForeignKey('Person', null=True, related_name='+')
+    man = models.ForeignKey('Person', null=True, related_name='+')
 
 
 
