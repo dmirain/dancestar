@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+
+
+from dancestar.person.models import Person, Couple
+
+
+# class PersonAdmin()
+
+admin.site.register(Person)
+admin.site.register(Couple)
