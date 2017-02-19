@@ -18,9 +18,10 @@ class Person(AbstractUser):
     # club = models.ForeignKey('Club', null=True)
 
     chief = models.ForeignKey('Person', null=True, related_name='students')
+    chief_name = models.CharField(max_length=100)
     partner = models.ForeignKey('Person', null=True, related_name='partner_list')
 
-    is_coach = models.BooleanField(default=True)
+    is_coach = models.BooleanField(default=False)
     # is_student = models.BooleanField(default=True)
 
     city = models.CharField(max_length=30, blank=True)
@@ -34,6 +35,11 @@ class Person(AbstractUser):
     tshirt_size = models.CharField(max_length=4, choices=TSHIRT_SIZES.choices())
 
     federation = models.CharField(max_length=30, blank=True)
+
+    couple_name = models.CharField(max_length=100)
+
+    # Карта лояльности
+    # card_number = models.CharField(max_length=50)
 
 
 class Couple(models.Model):
