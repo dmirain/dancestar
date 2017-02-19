@@ -32,5 +32,5 @@ class ProfileForm(forms.Form):
     chief_name = forms.CharField(label='Ф.И.О. тренера', required=False, max_length=100, strip=True)
 
 
-class RegistrationForm(ProfileForm):#, SetPasswordForm):
-    username = forms.CharField(required=True, max_length=150, strip=True)
+class RegistrationForm(ProfileForm, SetPasswordForm):
+    username = forms.CharField(label='Адрес электронной почты', required=True, max_length=150, strip=True)
